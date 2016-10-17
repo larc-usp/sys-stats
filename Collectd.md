@@ -112,7 +112,7 @@ LoadPlugin network
 
 ```
 
-Salve o arquivo. Reinicie o 
+Salve o arquivo. Reinicie o servidor: 
 
 
 ```bash
