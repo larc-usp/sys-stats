@@ -61,16 +61,72 @@ sudo service collectd
 
 Note que a saída será semelhante:
 
+```bash
+Starting collectd: not starting due to configuration error [FAILED]
+```
 
+Para iniciar o serviço corretamente precisamos habilitar alguns plugins dentro do arquivo /etc/collectd.conf. Abra o arquivo:
 
-
+```bash
 sudo vim /etc/collectd.conf 
+```
 
+E descomente e realize as seguintes alterações:
+
+```bash
+# Nome da máquina
+Hostname	"ps-bw.sciencedmz.usp.br"
+
+# Intervalo da captura
+Interval	2
+
+# Nível do log
+LoadPlugin syslog
+
+<Plugin syslog>
+        LogLevel info
+</Plugin>
+
+
+# Habilitar os seguintes plugins para captura
+LoadPlugin cpu
+LoadPlugin disk
+LoadPlugin entropy
+LoadPlugin interface
+LoadPlugin irq
+LoadPlugin load
+LoadPlugin memory
+LoadPlugin numa
+LoadPlugin processes
+LoadPlugin swap
+LoadPlugin network
+
+# Procure pelo plugin network e realize as seguintes modificações:
+
+<Plugin network>
+#As insformações são enviadas para o ADM
+        <Server "adm.sciencedmz.usp.br" "25826">
+        </Server>
+</Plugin>
+
+
+```
+
+Salve o arquivo. Reinicie o 
+
+
+```bash
 sudo service collectd start
+```
+
+A saída será:
+
+```bash
+Starting collectd:                                         [  OK  ]
+```
 
 
-
-
+Pronto! Tudo certo. Agora visualize em http://adm.sciencedmz.usp.br
 
 https://support.ciscozeus.io/support/solutions/articles/9000035008-how-to-compile-and-install-collectd-5-5-on-centos-6
 https://github.com/httpdss/collectd-web/blob/master/cgi-bin/collection.modified.cgi
