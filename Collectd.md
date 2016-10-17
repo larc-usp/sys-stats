@@ -1,10 +1,12 @@
 # Instalação do Collectd + Collectd Web
 
-Descrição
+Em breve
 
 ## Instalação e Configuração do Collectd Server
 
-# Instalação e Configuração do Collectd Client
+Em breve
+
+## Instalação e Configuração do Collectd Client
 
 Instalando pacotes para os plugins:
 
@@ -128,7 +130,7 @@ Starting collectd:                                         [  OK  ]
 
 Pronto! Coleta sendo realizada :)
 
-Refs:
+## Refs:
 
 * https://support.ciscozeus.io/support/solutions/articles/9000035008-how-to-compile-and-install-collectd-5-5-on-centos-6
 * https://github.com/httpdss/collectd-web/blob/master/cgi-bin/collection.modified.cgi
