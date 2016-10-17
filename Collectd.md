@@ -75,7 +75,7 @@ E descomente e realize as seguintes alterações:
 
 ```bash
 # Nome da máquina
-Hostname	"ps-bw.sciencedmz.usp.br"
+Hostname	"xyz.dominio.com"
 
 # Intervalo da captura
 Interval	2
@@ -105,7 +105,7 @@ LoadPlugin network
 
 <Plugin network>
 #As insformações são enviadas para o ADM
-        <Server "adm.sciencedmz.usp.br" "25826">
+        <Server "adm.dominio.com" "25826">
         </Server>
 </Plugin>
 
@@ -126,7 +126,7 @@ Starting collectd:                                         [  OK  ]
 ```
 
 
-Pronto! Tudo certo. Agora visualize em http://adm.sciencedmz.usp.br
+Pronto! Coleta sendo realizada :)
 
 Refs:
 
