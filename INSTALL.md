@@ -35,46 +35,6 @@ Dashboard Graphite para alertas. Suporte notificações via Email, Flowdock, Hip
 
 # Instalação e Configuração
 
-## CollectD
-
-Instalando os requisitos:
-
-```bash
-sudo yum install libcurl libcurl-devel rrdtool rrdtool-devel rrdtool-prel libgcrypt-devel gcc make gcc-c++
-```
-
-Instalando os pacotes para os diversos plugins.
-
-```bash
-sudo yum install libatasmart-devel libcurl-devel libdbi-devel libesmtp-devel ganglia-devel libgcrypt-devel hal-devel hiredis-devel iptables-devel java-1.8.0-openjdk-devel openldap-devel lvm2-devel libmemcached-devel libmnl-devel libmodbus-devel mysql-devel net-snmp-devel libnotify-devel OpenIPMI-devel liboping-devel libpcap-devel perl-devel, perl-ExtUtils-Embed postgresql-devel librabbitmq-devel rrdtool-devel lm_sensors-devel libstatgrab-devel libudev-devel nut-devel varnish-libs-devel libvirt-devel libxml2-devel yajl-devel protobuf-c-devel python-devel librabbitmq-devel libcurl-devel libcurl-devel, libxml2-devel yajl-devel libcurl-devel libcurl-devel, yajl-devel libcurl-devel, libxml2-devel libdbi-devel libpcap-devel ganglia-devel OpenIPMI-devel iptables-devel java-1.8.0-openjdk-devel yajl-devel lvm2-devel libmemcached-devel mysql-devel libmnl-devel libcurl-devel libnotify-devel libesmtp-devel nut-devel openldap-devel perl-devel, perl-ExtUtils-Embed liboping-devel postgresql-devel python-devel hiredis-devel rrdtool-devel libatasmart-devel, libudev-devel net-snmp-devel varnish-libs-devel libvirt-devel, libxml2-devel libcurl-devel hiredis-devel 
-```
-
-Download da versão 5.6.1 collectd.
-
-```bash
-wget https://storage.googleapis.com/collectd-tarballs/collectd-5.6.1.tar.bz2
-cd collectd-5.6.1/
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib --mandir=/usr/share/man 
-make
-sudo make install
-```
-
-Criar script para iniciar o collectd:
-
-```bash
-cp contrib/redhat/init.d-collectd /etc/init.d/collectd
-sudo cp contrib/redhat/init.d-collectd /etc/init.d/collectd
-sudo +x /etc/init.d/collectd 
-sudo chmod +x /etc/init.d/collectd 
-service collectd status
-```
-
-## Graphite
-
-```bash
-
-
-https://support.ciscozeus.io/support/solutions/articles/9000035008-how-to-compile-and-install-collectd-5-5-on-centos-6
 
 
 

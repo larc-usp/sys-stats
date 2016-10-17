@@ -128,13 +128,15 @@ Starting collectd:                                         [  OK  ]
 
 Pronto! Tudo certo. Agora visualize em http://adm.sciencedmz.usp.br
 
-https://support.ciscozeus.io/support/solutions/articles/9000035008-how-to-compile-and-install-collectd-5-5-on-centos-6
-https://github.com/httpdss/collectd-web/blob/master/cgi-bin/collection.modified.cgi
-https://raymii.org/s/tutorials/Collectd_server_setup_tutorial_with_web_frontend.html
-https://collectd.org/wiki/index.php/Table_of_Plugins
-http://www.tecmint.com/install-collectd-and-collectd-web-to-monitor-server-resources-in-linux/2/
-https://raymii.org/s/tutorials/Collectd_client_setup_tutorial.html
-https://raymii.org/s/tutorials/Collectd_server_setup_tutorial_with_web_frontend.html
-https://collectd.org/wiki/index.php/Troubleshooting
+Refs:
+
+* https://support.ciscozeus.io/support/solutions/articles/9000035008-how-to-compile-and-install-collectd-5-5-on-centos-6
+* https://github.com/httpdss/collectd-web/blob/master/cgi-bin/collection.modified.cgi
+* https://raymii.org/s/tutorials/Collectd_server_setup_tutorial_with_web_frontend.html
+* https://collectd.org/wiki/index.php/Table_of_Plugins
+* http://www.tecmint.com/install-collectd-and-collectd-web-to-monitor-server-resources-in-linux/2/
+* https://raymii.org/s/tutorials/Collectd_client_setup_tutorial.html
+* https://raymii.org/s/tutorials/Collectd_server_setup_tutorial_with_web_frontend.html
+* https://collectd.org/wiki/index.php/Troubleshooting
 
 
