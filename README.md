@@ -5,7 +5,21 @@
 
 ### LoadPlugin cpu
 
-Este plugin coleta as métricas de uso da CPU. Por padrão, o uso da CPU é reportado como [Jiffies](http://www.makelinux.net/books/lkd2/ch10lev1sec3) 
+Este plugin coleta as métricas de uso da CPU. Por padrão, o uso da CPU é reportado como [Jiffies](http://www.makelinux.net/books/lkd2/ch10lev1sec3). É possível aplicar duas agregações:
+
+1. Soma, por-estado, de todos os CPUs instalado no sistema; e
+2. Soma, por-cpu, de todos os estados não-ociosos de uma CPU, criando um estado "ativo"
+
+As duas agregações podem ser combinadas, levando o ```collectd``` a emitir apenas uma única métrica "ativa" para todo o sistema. Assim que uma dessas agragações (ou ambas) é ativada, o plugin irá reportar a porcentagem, ao invés do Jiffies. As seguintes configurações são disponíveis
+
+* ReportByState true|false
+	* Quando definido como ```true```, o padrão, será relatada métricas por-estado. Por exemplo: "system", "user" e "idle". Quando definido como ```false```, aggregates (sums) all non-idle states into one "active" metric.
+
+ReportByCpu true|false
+When set to true, the default, reports per-CPU (per-core) metrics. When set to false, instead of reporting metrics for individual CPUs, only a global sum of CPU states is emitted.
+
+ValuesPercentage false|true
+This option is only considered when both, ReportByCpu and ReportByState are set to true. In this case, by default, metrics will be reported as Jiffies. By setting this option to true, you can request percentage values in the un-aggregated (per-CPU, per-state) mode as well.
 
 ### LoadPlugin load
 
