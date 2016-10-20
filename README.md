@@ -13,13 +13,13 @@ Este plugin coleta as métricas de uso da CPU. Por padrão, o uso da CPU é repo
 As duas agregações podem ser combinadas, levando o ```collectd``` a emitir apenas uma única métrica "ativa" para todo o sistema. Assim que uma dessas agragações (ou ambas) é ativada, o plugin irá reportar a porcentagem, ao invés do Jiffies. As seguintes configurações são disponíveis
 
 * ```ReportByState true|false```
-	* Quando definido como ```true``` as métricas serão por-estado (é o padrão). Por exemplo: "system", "user" e "idle". 
-	* Quando definido como ```false```, agrega todos os estados não-ociosos em uma métrica ativa.
+  * Quando definido como ```true``` as métricas serão por-estado (é o padrão). Por exemplo: "system", "user" e "idle". 
+  * Quando definido como ```false```, agrega todos os estados não-ociosos em uma métrica ativa.
 
 * ```ReportByCpu true|false```
-	* Quando definido como ```true```, as métricas são reportadas por-cpu (é o padrão). 
-	* Quando definido como ```false```, a soma global dos estados da CPU ser]a emitida.
-	
+  * Quando definido como ```true```, as métricas são reportadas por-cpu (é o padrão). 
+  * Quando definido como ```false```, a soma global dos estados da CPU ser]a emitida.
+
 * ```ValuesPercentage false|true``` - Essa opção só é considerada se ReportByCPU e ReportByState estiverem definidas como ```true```. Nesse caso, por padrão, as métricas são reportadas como Jiffies. Setando essa opção para ```true```, é possível requisitar valores em porcentagem no modo não agregado por-CPU e por-estado.
 
 ### LoadPlugin load
@@ -41,7 +41,7 @@ As informações capturadas são:
 * local_node - Número de páginas alocadas desse nó enquanto o processo roda localmente.
 * other_node - Número de páginas alocadas desse nó enqunato o processo estava rodando remotamente (em outro nó)
 * interleave_hit - Número de página alocadas com sucesso com a estratégia **interleave**.
-	
+
 Refs: 
 
 * http://blog.tsunanet.net/2011/06/clarifications-on-linuxs-numa-stats.html
@@ -61,7 +61,7 @@ Coleta informações sobre o uso do disco físico, bem como das partições lóg
 Utilizando as duas opções a seguir, é possível ignorar algum disco ou configurar uma coleção de discos que serão utilizados.
 
 * ``` Disk Name``` - Seleciona o disco *Name*. Os discos definidos aqui podem ser utilizados para coletar os dados ou não, isso irá depender das configurações da opção *IgnoreSelected*. Exemplo:
-	
+
 ```bash
 Disk "sdd"
 Disk "/hda[34]/"
@@ -72,8 +72,8 @@ Note que no segundo caso, estamos aplicando uma expressão regular que começa e
 
 * ```IgnoreSelected true|false``` - Define os discos se selecionados. Ou seja, se IgnoreSelected for definido:
 
-	* ```true``` então todos os discos que não foram definidos anteriormente serão coletados.
-	* ```false``` então todos os discos que foram definidos serão coletados.
+  * ```true``` então todos os discos que não foram definidos anteriormente serão coletados.
+  * ```false``` então todos os discos que foram definidos serão coletados.
 
 Caso nenhum disco seja definido anteriormente, todos os discos serão coletados.
 
@@ -84,8 +84,8 @@ Coleta informações sobre o espaço de troca (swap) disponível e utilizado. Op
 
 * ```ReportByDevice false|true``` - Configura como reportar os dispositivos físicos de swap. Se:
 
-	* ```false``` - apenas o resumo de todos os dispositivos de swap. Por exemplo: o uso e disponibilidade global do espaço em todos os dispositivos.
-	* ```true``` - uso e disponibilidade do espaço de todos os dispositivos separadamente.
+  * ```false``` - apenas o resumo de todos os dispositivos de swap. Por exemplo: o uso e disponibilidade global do espaço em todos os dispositivos.
+  * ```true``` - uso e disponibilidade do espaço de todos os dispositivos separadamente.
 
 Essa opção está disponível apenas se o plugin possa ler /proc/swaps (no Linux) ou utilizar o mecanismos swapctl(2) (no Solaris).
 
@@ -110,8 +110,8 @@ O plugin de memória fornece as seguintes opções de configuração:
 
 * ```IgnoreSelected true|false``` - Se nenhuma configuração for definida o plugin irá coletar dados de todas as interfaces. Isso pode não ser prático, especialmente para interfaces de loopback ou similares. Assim, é possível escolher as interfaces que está interessado ou então definir as interfaces que não está interessado. Portanto, se IgnoreSelected estiver como:
 
-	* ```true``` - todas as interfaces não listadas anteriormente serão coletadas.
-	* ```false``` - todas as interfaces listas anteriormente serão coletadas.
+  * ```true``` - todas as interfaces não listadas anteriormente serão coletadas.
+  * ```false``` - todas as interfaces listas anteriormente serão coletadas.
 
 É possível utilizar expressões regulares nos nomes das interfaces. Se / (barra) for adicionado nas extremidades dos nomes será utilizado regexps. 
 
@@ -122,10 +122,10 @@ O plugin de memória fornece as seguintes opções de configuração:
  Interface "/^veth/"
  Interface "/^tun[0-9]+/"
  IgnoreSelected "true"
- ```
- 
+```
+
  Isso irá ignorar a interface de loopback, bem como todas as interfaces que começarem com a palavra ```veth```, bem como todas as interfaces que começam com ```tun``` seguido por pelo menos um digito.
- 
+
 ### LoadPlugin network
 
 Este plugin envia os dados para uma instancia remota do collectd. Recebe dados de uma instancia remota, ou as duas ao mesmo tempo.
@@ -139,12 +139,11 @@ Mais informações podem ser visualizadas em: https://collectd.org/documentation
 Coleta o número de processos nos estados de:
 
 * running
-* blocked - o processo está esperando algum evento, como um recurso se tornar disponível ou uma operação de I/O esteja completa.
-* sleeping - 
-* paging - 
+* sleeping 
+* paging
 * stopped
+* blocked - o processo está esperando algum evento, como um recurso se tornar disponível ou uma operação de I/O esteja completa.
 * zombies - o processo foi finalizado com sucesso, porém a mudança do estado ainda não foi reconhecida pelo processo pai.
-	
 
 ### LoadPlugin snmp
 
@@ -159,15 +158,43 @@ As configurações via SNMP serão utilizadas para recuperar métricas do Switch
 
 Coleta a entropia de um sistema. A entropia é importante para gerar numeros aleatórios, os quais podem ser utilizados para criptografia, autorização e tarefas similares. Os valores são em bits.
 
-
 ## Métricas
 
+O collectd irá utilizar os plugins selecionados e irá coletar as informações de acordo com a configuração de cada um deles. Após isso, o collectd irá enviar os dados via rede para o banco de dados InfluxDB, que por sua vez, irá salvar os dados no banco de dados.
+
+Como estamos utilizando o InfluxDB para salvar os dados, temos que criar queries especificas para cada uma das métricas que queremos avaliar.
+
+Desta forma, podemos plugar o InfluxDB no Grafana para visualizar os gráficos e acompanhar durante o tempo as variações dessa métrica.
+
+
+
 ## CPU Average (over all cores)
+
+http://stackoverflow.com/questions/35774192/how-to-get-cpu-usage-percentage-measured-by-collectd-in-influxdb
+
+
+
+
+
 ## Load
+
+
+
 ## Processes (Forks, State)
+
+
+
 ## Memory Usage
+
+
+
 ## Disc Usage
+
+
+
 ## Network Packets, Traffic e Errors
+
+
 
 
 
