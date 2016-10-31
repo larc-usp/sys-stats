@@ -16,7 +16,13 @@ Arquitetura base para a coleta das métricas nos equipamentos que serão monitor
 
 Cada cliente irá enviar os dados para o servidor que irá armazenar os dados no InfluxBD que posteriormente será utilizado pelo Grafana para visualizar os resultados.
 
-[TOC]
+* [sys-stats](#sys-stats)
+     * [Plugins](#plugins)
+     * [Instalação e Configuração](#instalação-e-configuração)
+     * [Métricas](#métricas)
+     * [Referências](#referências)
+
+
 
 ## Plugins
 
