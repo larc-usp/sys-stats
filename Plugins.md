@@ -1,6 +1,23 @@
 # sys-stats - Plugins
 
-[TOC]
+* [sys-stats - Plugins](#sys-stats---plugins)
+     * [LoadPlugin contextswitch](#loadplugin-contextswitch)
+     * [LoadPlugin cpu](#loadplugin-cpu)
+     * [LoadPlugin df](#loadplugin-df)
+     * [LoadPlugin disk](#loadplugin-disk)
+     * [LoadPlugin entropy](#loadplugin-entropy)
+     * [LoadPlugin interface](#loadplugin-interface)
+     * [LoadPlugin irq](#loadplugin-irq)
+     * [LoadPlugin load](#loadplugin-load)
+     * [LoadPlugin memory](#loadplugin-memory)
+     * [LoadPlugin network](#loadplugin-network)
+     * [LoadPlugin numa](#loadplugin-numa)
+     * [LoadPlugin processes](#loadplugin-processes)
+     * [LoadPlugin swap](#loadplugin-swap)
+     * [LoadPlugin tcpconns](#loadplugin-tcpconns)
+     * [LoadPlugin uptime](#loadplugin-uptime)
+     * [LoadPlugin users](#loadplugin-users)
+     * [LoadPlugin snmp](#loadplugin-snmp)
 
 ### LoadPlugin contextswitch
 
