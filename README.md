@@ -10,7 +10,7 @@ As ferramentas utilizadas são:
 
 Arquitetura base para a coleta das métricas nos equipamentos que serão monitorados.
 
-![Arch Sys Stats](sys-stats.png)
+![Arch Sys Stats](imgs/sys-stats.png)
 
 
 
