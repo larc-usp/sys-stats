@@ -1,6 +1,12 @@
 # sys-stats - Install
 
-[TOC]
+* [sys-stats - Install](#sys-stats---install)
+     * [Collectd](#collectd)
+        * [Servidor](#servidor)
+        * [Cliente](#cliente)
+     * [InfluxDB](#influxdb)
+     * [Grafana](#grafana)
+     * [Refs:](#refs)
 
 ## Collectd
 
