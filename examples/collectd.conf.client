@@ -1,0 +1,56 @@
+
+# Necessário alterar o Hostname
+Hostname    "aaa.bbb.ccc.br"
+BaseDir     "/var/lib/collectd"
+PIDFile     "/var/run/collectd.pid"
+TypesDB     "/opt/collectd/share/collectd/types.db"
+
+# Intervalo de captura
+Interval     5
+
+# Log
+LoadPlugin syslog
+
+<Plugin syslog>
+	LogLevel info
+</Plugin>
+
+# Plugins 
+LoadPlugin contextswitch
+LoadPlugin cpu
+LoadPlugin df
+LoadPlugin disk
+LoadPlugin entropy
+LoadPlugin interface
+LoadPlugin irq
+LoadPlugin load
+LoadPlugin memory
+LoadPlugin network
+LoadPlugin numa
+LoadPlugin processes
+LoadPlugin swap
+LoadPlugin tcpconns
+LoadPlugin uptime
+LoadPlugin users
+
+# Configurações dos plugins
+<Plugin cpu>
+  ReportByCpu true
+  ReportByState true
+  ValuesPercentage true
+</Plugin>
+
+<Plugin df>
+	ReportInodes true
+	ValuesAbsolute true
+	ValuesPercentage true
+</Plugin>
+
+<Plugin network>
+	<Server "xxx.yyy.zzz.br" "25826">
+	</Server>
+</Plugin>
+
+<Plugin tcpconns>
+	AllPortsSummary true
+</Plugin>

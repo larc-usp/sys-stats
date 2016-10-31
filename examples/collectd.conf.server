@@ -1,0 +1,102 @@
+
+Hostname    "xxx.yyy.zzz.br"
+BaseDir     "/var/lib/collectd"
+PIDFile     "/var/run/collectd.pid"
+TypesDB     "/opt/collectd/share/collectd/types.db"
+
+
+Interval     5
+
+LoadPlugin syslog
+LoadPlugin logfile
+
+<Plugin logfile>
+	LogLevel notice
+	File "/var/log/collectd.log"
+	Timestamp true
+</Plugin>
+
+
+<Plugin syslog>
+	LogLevel info
+</Plugin>
+
+LoadPlugin contextswitch
+LoadPlugin cpu
+LoadPlugin df
+LoadPlugin disk
+LoadPlugin entropy
+LoadPlugin interface
+LoadPlugin irq
+LoadPlugin load
+LoadPlugin memory
+LoadPlugin network
+LoadPlugin numa
+LoadPlugin processes
+LoadPlugin snmp
+LoadPlugin swap
+LoadPlugin tcpconns
+LoadPlugin uptime
+LoadPlugin users
+
+<Plugin cpu>
+  ReportByCpu true
+  ReportByState true
+  ValuesPercentage true
+</Plugin>
+
+<Plugin df>
+	ReportInodes true
+	ValuesAbsolute true
+	ValuesPercentage true
+</Plugin>
+
+<Plugin network>
+	<Server "127.0.0.1" "25826">
+	</Server>
+</Plugin>
+
+
+<Plugin snmp>
+    <Data "trafego">
+        Type "if_octets"
+        Table true
+        Instance "IF-MIB::ifDescr"
+        Values "IF-MIB::ifInOctets" "IF-MIB::ifOutOctets"
+        Scale 8
+    </Data>
+    <Data "temp_cpu_board">
+        Type "temperature"
+        Table false
+        Instance "temp_cpu_board" 
+        Values ".1.3.6.1.4.1.1991.1.1.2.13.1.1.4.3.1"
+        Scale 0.5
+    </Data>
+
+    <Data "temp_cpu_chip">
+        Type "temperature"
+        Table false
+        Instance "temp_cpu_chip"
+        Values ".1.3.6.1.4.1.1991.1.1.2.13.1.1.4.3.2"
+        Scale 0.5
+    </Data>
+
+    <Data "uptime">
+        Type "uptime"
+        Table false
+        Instance "uptime"
+        Values ".1.3.6.1.2.1.1.3.0"
+    </Data>
+
+    <Host "switch">
+        Address "143.107.6.17"
+        Version 1
+        Community "public"
+        Collect "trafego" "temp_cpu_board" "temp_cpu_chip" "uptime" 
+        Interval 5
+    </Host>
+</Plugin>
+
+<Plugin tcpconns>
+	AllPortsSummary true
+</Plugin>
