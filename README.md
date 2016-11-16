@@ -26,7 +26,7 @@ Cada cliente irá enviar os dados para o servidor que irá armazenar os dados no
 
 ## Plugins
 
-Existem diversos Plugins para serem utilizados no Collectd, clique [plugins](plugins.md) serão listados apenas os utilizados nas configurações.
+Existem diversos Plugins para serem utilizados no Collectd, clique [plugins](Plugins.md) serão listados apenas os utilizados nas configurações.
 
 Uma lista completa pode ser encontrada na página oficinal [](https://collectd.org/wiki/index.php/Table_of_Plugins)
 
